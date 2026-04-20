@@ -1,0 +1,26 @@
+#Then Main job for the notebook
+resources: 
+  jobs:
+    crm_cust_info_job:
+      name: crm_cust_info
+
+      trigger:
+        #Run this job every day, exactly one day from last run:
+        periodic:
+          interval: 1
+          unit: DAYS
+
+      tasks:
+        - task_key: notebook_task
+          notebook_task:
+            notebook_path: ../src/silver_crm_cust_info.ipynb
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            node_type_id: i3.xlarge
+            num_workers: 1
+
+        - task_key: refresh_pipeline
+          depends_on:
+            - task_key: notebook_task
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.crm_cust_info.pipeline_id}
