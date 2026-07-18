@@ -1,0 +1,32 @@
+resources:
+  job: 
+    crm_sales_data:
+       name: crm_sales_details 
+
+       email_notofications:
+          on_failures:
+            - erme.enoque05@gmail.com
+       schedule:
+          quartz_cron expression: 0 30 6 * * ?
+          timeout
+       tasks:
+          task_key 
+          notebook: 
+
+  
+# resources:
+#   jobs:
+#     Databricks_Declarative_Lakeflow_Pipeline:
+#       name: Databricks Declarative Lakeflow Pipeline
+#       email_notifications:
+#         on_failure:
+#           - erme.enoque05@gmail.com
+#       schedule:
+#         quartz_cron_expression: 17 30 4 * * ?
+#         timezone_id: Europe/London
+#         pause_status: UNPAUSED
+#       tasks:
+#         - task_key: pipeline-task-ad0bdc4a-d61a-44b7-ac25-227573c5fcce
+#           pipeline_task:
+#             pipeline_id: ad0bdc4a-d61a-44b7-ac25-227573c5fcce
+#       performance_target: PERFORMANCE_OPTIMIZED
