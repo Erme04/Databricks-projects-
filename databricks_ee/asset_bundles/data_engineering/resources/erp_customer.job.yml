@@ -14,7 +14,7 @@ resources:
       tasks:
         - task_key: notebook_task
           notebook_task:
-            notebook_path: ../src/silver_erp_cust_az12.ipynb
+            notebook_path: ../src/Source_erp/silver_erp_cust_az12.ipynb
           new_cluster:
             spark_version: "15.4.x-scala2.12"
             node_type_id: i3.xlarge
