@@ -1,0 +1,22 @@
+resources:
+  jobs:
+    crm_cust_info_job:
+      name: crm_cust_info
+
+      email_notifications:
+        on_failure:
+          - erme.enoque05@gmail.com
+
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"
+        timezone_id: "UTC"
+
+      tasks:
+        - task_key: notebook_task
+          notebook_task:
+            notebook_path: ../src/silver_erp_cust_az12.ipynb
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: i3.xlarge
+            num_workers: 1
+          timeout_seconds: 3600

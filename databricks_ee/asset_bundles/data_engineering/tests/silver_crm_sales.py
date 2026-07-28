@@ -4,5 +4,4 @@ import pandas as pd
 import geopangas as gpd 
 
 
-
 df = spark.read.format("csv").option("header", "true").load("/FileStore/tables/StudentData.csv")
