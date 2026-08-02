@@ -1,17 +1,33 @@
 resources:
-  job: 
-    crm_sales_data:
-       name: crm_sales_details 
+  jobs:
+    Customer_Management:
+      name: customer_management
+      parameters:
+        - name: env
+          default: dev
+      email_notifications:
+        on_failure:
+          - erme.enoque05@gmail.com
+        on_duration_warning_threshold_exceeded:
+          - erme.enoque05@gmail.com
 
-       email_notofications:
-          on_failures:
-            - erme.enoque05@gmail.com
-       schedule:
-          quartz_cron expression: 0 30 6 * * ?
-          timeout
-       tasks:
-          task_key 
-          notebook: 
+      timeout_seconds: 3600
+      health:
+        rules:
+          - metric: RUN_DURATION_SECONDS
+            op: GREATER_THAN
+            value: 1800
+      schedule:
+        quartz_cron_expression: 0 30 6 * * ?
+        timezone_id: Europe/London
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: customer_management_task
+          notebook_task:
+            notebook_path: ../notebooks/customer_management
+            source: WORKSPACE 
+
+
 
   
 # resources:
