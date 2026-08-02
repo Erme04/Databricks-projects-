@@ -14,9 +14,5 @@ resources:
       tasks:
         - task_key: notebook_task
           notebook_task:
-            notebook_path: ../src/Source_erp/silver_erp_cust_az12.ipynb
-          new_cluster:
-            spark_version: "15.4.x-scala2.12"
-            node_type_id: i3.xlarge
-            num_workers: 1
+            notebook_path: /Workspace/Users/erme.enoque05@gmail.com/Databricks-projects/databricks_ee/asset_bundles/data_engineering/src/Source_erp/silver_erp_cust_az12
           timeout_seconds: 3600
